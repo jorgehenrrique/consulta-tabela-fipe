@@ -1,0 +1,10 @@
+/* || DarkMode Sistem */
+@media (prefers-color-scheme: dark) {
+
+    html,
+    a,
+    button {
+        color: var(--text-color-dark);
+    }
+
+}
