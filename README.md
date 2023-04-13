@@ -2,7 +2,8 @@
 ## Sobre o projeto
 
     Projeto utiliza a API:
-    <a href="https://deividfortuna.github.io/fipe/">FIPE API HTTP REST</a>
+    FIPE API HTTP REST [site](https://deividfortuna.github.io/fipe/)
+
 <!-- <img src=""> -->
 
 ### Entregas
