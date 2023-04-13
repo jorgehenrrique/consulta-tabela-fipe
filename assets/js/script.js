@@ -14,13 +14,18 @@ let consultaFipeM = new XMLHttpRequest();
 let consultaFipeAno = new XMLHttpRequest();
 let consultaFipeAnoTipo = new XMLHttpRequest();
 
-
+let tipo;
 function tipoAutomovel() {
     // console.log(inputTipo.value);
-    let tipo = inputTipo.value;
+    tipo = inputTipo.value;
     consultaFipe.open('GET', `https://parallelum.com.br/fipe/api/v1/${tipo}/marcas`, true);
     consultaFipe.send();
     consultaFipe.onreadystatechange = () => buscar(consultaFipe);
+
+    formMarca.style.display = 'none';
+    formModelo.style.display = 'none';
+    formAno.style.display = 'none';
+    tableVeiculo.style.display = 'none';
 }
 inputTipo.onchange = tipoAutomovel;
 
@@ -34,7 +39,6 @@ function buscar(consultaFipe) {
         loading.style.display = 'none';
         tratamentoFipe(consultaFipe);
         console.log(consultaFipe.readyState)
-        formMarca.style.display = 'block'; // Mostra selecão de marca
         if (consultaFipe.status === 200) { // Status Code
             console.log('otimo! sucesso')
         } else {
@@ -44,6 +48,7 @@ function buscar(consultaFipe) {
 }
 
 function tratamentoFipe(consultaFipe) {
+    formMarca.style.display = 'block';
     let tabela = JSON.parse(consultaFipe.responseText);
     console.log(tabela)
 
@@ -65,7 +70,7 @@ function buscaModelo() {
     marcaEscolhida = selectMarca.value;
     console.log('codigo marca', marcaEscolhida)
 
-    consultaFipeM.open('GET', `https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaEscolhida}/modelos`, true);
+    consultaFipeM.open('GET', `https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos`, true);
     consultaFipeM.send();
     consultaFipeM.onreadystatechange = () => buscaModelos(consultaFipeM);
 }
@@ -80,7 +85,6 @@ function buscaModelos(consultaFipeM) {
         loading.style.display = 'none';
         tratamentoFipeModelos(consultaFipeM);
         console.log(consultaFipeM.readyState)
-        formMarca.style.display = 'block'; // Mostra selecão de marca
         if (consultaFipeM.status === 200) { // Status Code
             console.log('otimo! sucesso-2') //
         } else {
@@ -115,7 +119,7 @@ function buscaAno() {
     console.log('codigo ano', modeloEscolhido)
     console.log('codigo marca', marcaEscolhida)
 
-    consultaFipeAno.open('GET', `https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaEscolhida}/modelos/${modeloEscolhido}/anos`, true);
+    consultaFipeAno.open('GET', `https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos/${modeloEscolhido}/anos`, true);
     consultaFipeAno.send();
     consultaFipeAno.onreadystatechange = () => buscaAnos(consultaFipeAno);
 }
@@ -130,7 +134,6 @@ function buscaAnos(consultaFipeAno) {
         loading.style.display = 'none';
         tratamentoFipeAno(consultaFipeAno);
         console.log(consultaFipeAno.readyState)
-        formAno.style.display = 'block'; // Mostra selecão de marca
         if (consultaFipeAno.status === 200) { // Status Code
             console.log('otimo! sucesso-3') //
         } else {
@@ -166,7 +169,7 @@ function buscaAnoTipo() {
     console.log('codigo modelo', modeloEscolhido)
     console.log('codigo marca', marcaEscolhida)
 
-    consultaFipeAnoTipo.open('GET', `https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaEscolhida}/modelos/${modeloEscolhido}/anos/${anoEscolhido}`, true);
+    consultaFipeAnoTipo.open('GET', `https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos/${modeloEscolhido}/anos/${anoEscolhido}`, true);
     consultaFipeAnoTipo.send();
     consultaFipeAnoTipo.onreadystatechange = () => buscaAnosTipo(consultaFipeAnoTipo);
 }
@@ -181,7 +184,6 @@ function buscaAnosTipo(consultaFipeAnoTipo) {
         loading.style.display = 'none';
         tratamentoFipeAnoTipo(consultaFipeAnoTipo);
         console.log(consultaFipeAnoTipo.readyState)
-        tableVeiculo.style.display = 'block'; // Mostra selecão de marca
         if (consultaFipeAnoTipo.status === 200) { // Status Code
             console.log('otimo! sucesso-3') //
         } else {
@@ -191,6 +193,7 @@ function buscaAnosTipo(consultaFipeAnoTipo) {
 }
 
 function tratamentoFipeAnoTipo(consultaFipeAnoTipo) {
+    tableVeiculo.style.display = 'block';
     let veiculo = JSON.parse(consultaFipeAnoTipo.responseText);
     console.log(veiculo)
     console.log('anostipo tabela')
