@@ -3,7 +3,5 @@
 
 Projeto utiliza a API: [FIPE API HTTP REST](https://deividfortuna.github.io/fipe/)
 
-<!-- <img src=""> -->
-
-### Entregas
-* Em desenvolvimento
+### API Status
+* [API Status](http://parallelum.com.br/fipe/status)
