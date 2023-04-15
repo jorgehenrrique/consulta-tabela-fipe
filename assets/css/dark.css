@@ -1,7 +1,8 @@
 header {
     background-color: var(--header-color-dark);
     box-shadow: 0px 0px 30px 0px var(--header-shadow-dark);
-    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    border-bottom: .1rem solid var(--border-dark);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, border-bottom 0.5s ease;
 }
 h1{
     color: var(--header-title-dark);
@@ -14,7 +15,8 @@ h2{
 .container{
     background-color: var(--container-bkg-dark);
     color: var(--container-color-dark);
-    transition: background-color 0.5s ease, color 0.5s ease;
+    border-bottom: .1rem solid var(--border-dark);
+    transition: background-color 0.5s ease, color 0.5s ease, border-bottom 0.5s ease;
 }
 tr:nth-child(2n){
     background-color: #c1c1c114;

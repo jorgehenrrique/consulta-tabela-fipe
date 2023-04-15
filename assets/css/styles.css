@@ -1,13 +1,15 @@
 :root{
     --border-radius: 2rem;
     --border-radius-plus: 2.5rem;
+    --border-ligth: #14213D;
+    --border-dark: #4cd964;
 
     --header-color-light: #e8e8e8;
     --header-color-dark: #212121;
     --header-title-light: #14213D;
     --header-title-dark: #FFFFFF;
-    --header-shadow-light: #E5E5E5;
-    --header-shadow-dark: #250084;
+    --header-shadow-light: #4ca5d9;
+    --header-shadow-dark: #4cd964;
     --container-bkg-light: #F9FAFB;
     --container-bkg-dark: #1F1F1F;
     --container-color-light: #333333;
@@ -31,6 +33,7 @@ header{
     box-shadow: 0px 0px 30px 0px var(--header-shadow-light);
     position: relative;
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    border-bottom: .1rem solid var(--border-ligth);
 }
 .modo{
     position: absolute;
@@ -60,6 +63,7 @@ h2{
     font-size: 1.7rem;
     transition: background-color 0.5s ease, color 0.5s ease;
     overflow: auto;
+    border-bottom: .1rem solid var(--border-ligth);
 }
 label{
     display: flex;
