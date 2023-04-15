@@ -13,4 +13,7 @@
     select{
         width: 100%;
     }
+    header{
+        height: 3.5rem;
+    }
 }
