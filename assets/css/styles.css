@@ -47,6 +47,7 @@ header{
     align-items: center;
     box-shadow: 0px 0px 30px 0px var(--header-shadow-light);
     position: relative;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 .modo{
     position: absolute;
@@ -54,11 +55,13 @@ header{
 }
 h1{
     color: var(--header-title-light);
+    transition: color 0.5s ease;
 }
 h2{
     color: var(--container-color-light);
     text-align: center;
     padding: 0 0 1.5rem 0;
+    transition: color 0.5s ease;
 }
 .container{
     background-color: var(--container-bkg-light);
@@ -72,6 +75,7 @@ h2{
     flex-flow: column;
     gap: 1rem;
     font-size: 1.7rem;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 label{
     display: flex;

@@ -8,6 +8,7 @@ const formAno = document.querySelector('.ano');
 const selectAno = document.querySelector('#ano');
 const tableVeiculo = document.querySelector('.table');
 const listaVeiculo = document.querySelector('#lista-veiculo');
+
 const darkModeSistem = document.querySelector('.dark-sistem');
 const darkModeCss = document.querySelector('.dark');
 const darkModeCheck = document.querySelector('#check-apple');
