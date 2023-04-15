@@ -10,16 +10,18 @@
     <meta http-equiv="Content-Language" content="pt-br">
     <meta name="keywords" content="consulta, tabela, fipe">
 
-    <link rel="icon" type="image/x-icon" href="">
-    <link rel="icon" type="image/png" href="">
-
-    <meta name="apple-mobile-web-app-title" content="C. T. FIPE">
-    <link rel="apple-touch-icon" sizes="180x180" href="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C.T. FIPE">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icon/icons8-carro-91.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" type="image/x-icon" href="./assets/icon/icons8-carro-96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon/icons8-carro-91.png">
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/darkMode.css">
-    <link rel="stylesheet" class="dark" href="assets/css/dark.css">
+    <link rel="stylesheet" class="dark" href="">
     <link rel="stylesheet" href="assets/css/media.css">
     <link rel="stylesheet" href="assets/css/loader.css">
     <title>Consulta Tatela FIPE</title>
@@ -32,8 +34,12 @@
 <body>
     <header>
         <div class="modo">
-            <button class="escuro">◼️</button>
-            <button class="claro">◻️</button>
+            <!-- <button class="escuro">◼️</button>
+            <button class="claro">◻️</button> -->
+            <div class="checkbox-apple">
+                <input class="yep" id="check-apple" type="checkbox">
+                <label for="check-apple"></label>
+            </div>
         </div>
         <h1>Consulta simples na Tabela FIPE</h1>
     </header>
@@ -41,7 +47,7 @@
 
     <main class="container animate__fadeIn">
         <h2>Consultar Tabela FIPE</h2>
-
+        
         <form class="tipo">
             <label for="tipo">Escolha o tipo de automóvel</label>
             <select id="tipo" name="tipo">
@@ -87,7 +93,6 @@
                 </th>
             </thead>
             <tbody id="lista-veiculo">
-
             </tbody>
         </table>
     </main>

@@ -1,9 +1,18 @@
 /* || DarkMode Sistem */
 @media (prefers-color-scheme: dark) {
 
-    html,
-    a {
-        color: var(--text-color-dark);
+    header {
+        background-color: var(--header-color-dark);
+        box-shadow: 0px 0px 30px 0px var(--header-shadow-dark);
     }
-
+    h1{
+        color: var(--header-title-dark);
+    }
+    h2{
+        color: var(--container-color-dark);
+    }
+    .container{
+        background-color: var(--container-bkg-dark);
+        color: var(--container-color-dark);
+    }
 }

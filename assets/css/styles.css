@@ -1,26 +1,51 @@
-html{
+/* html{ */
     /* background-color: #808080; */
     /* color: #2196F3; */
-}
+/* } */
+/* 
+Modo Claro:
+
+Cor do Header/Título: #14213D
+Cor da Sombra do Header: #E5E5E5
+Cor de Fundo do Container: #F9FAFB
+Cor do Texto: #333333
+Modo Escuro:
+
+Cor do Header/Título: #FFFFFF
+Cor da Sombra do Header: #111111
+Cor de Fundo do Container: #1F1F1F
+Cor do Texto: #E5E5E5 */
 :root{
     --border-radius: 2rem;
     --border-radius-plus: 2.5rem;
 
-    --header-color: #5ece65;
+    --header-color-light: #e8e8e8;
+    --header-color-dark: #212121;
+    --header-title-light: #14213D;
+    --header-title-dark: #FFFFFF;
+    --header-shadow-light: #E5E5E5;
+    --header-shadow-dark: #250084;
+    --container-bkg-light: #F9FAFB;
+    --container-bkg-dark: #1F1F1F;
+    --container-color-light: #333333;
+    --container-color-dark: #E5E5E5;
 }
 body{
-    background-color: #808080;
+    background-color: #212121;
+    background-image: url('../bkg/endless-constellation.svg');
+    background-size: auto;
+    background-position: center center;
 }
 header{
     text-align: center;
     font-size: 1.5rem;
-    background-color: var(--header-color);
+    background-color: var(--header-color-light);
     width: 100%;
     height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 40px 0px #2196F3;
+    box-shadow: 0px 0px 30px 0px var(--header-shadow-light);
     position: relative;
 }
 .modo{
@@ -28,14 +53,16 @@ header{
     left: 1rem;
 }
 h1{
-    color: #600d9b;
+    color: var(--header-title-light);
 }
 h2{
+    color: var(--container-color-light);
     text-align: center;
     padding: 0 0 1.5rem 0;
 }
 .container{
-    background-color: #d5d5d5;
+    background-color: var(--container-bkg-light);
+    color: var(--container-color-light);
     margin: 2rem auto;
     padding: 2rem 1rem;
     width: 80%;
@@ -52,7 +79,7 @@ label{
 }
 select{
     width: 50%;
-    color: #600d9b;
+    color: inherit;
 }
 form{
     display: flex;

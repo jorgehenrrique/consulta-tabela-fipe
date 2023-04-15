@@ -8,8 +8,20 @@ const formAno = document.querySelector('.ano');
 const selectAno = document.querySelector('#ano');
 const tableVeiculo = document.querySelector('.table');
 const listaVeiculo = document.querySelector('#lista-veiculo');
+const darkModeCss = document.querySelector('.dark');
+const darkModeCheck = document.querySelector('#check-apple');
 
 const option = `<option value="default" disabled selected>Selecione uma opção</option>`;
+
+darkModeCheck.addEventListener('change', () => {
+    // if (darkModeCheck.checked) {
+    //     darkModeCss.href = 'assets/css/dark.css';
+    // } else {
+    //     darkModeCss.href = '';
+    // }
+    darkModeCheck.checked ? darkModeCss.href = 'assets/css/dark.css' : darkModeCss.href = '';
+});
+
 
 let consultaFipe = new XMLHttpRequest();
 let consultaFipeM = new XMLHttpRequest();
