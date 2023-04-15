@@ -34,10 +34,10 @@ function tipoAutomovel() {
             if (response.ok && response.status === 200) {
                 return response.json();
             } else {
-                console.log(response.status)
+                console.log(response.status);
                 throw new Error("Busca por tipo");
             }
-        }).then((data) => {
+        }).then(data => {
             loading.style.display = 'none';
             formMarca.style.display = 'block';
 
@@ -47,7 +47,7 @@ function tipoAutomovel() {
             data.forEach(marca => {
                 selectMarca.innerHTML += `<option value="${marca.codigo}">${marca.nome}</option>`;
             });
-        }).catch((error) => {
+        }).catch(error => {
             console.warn(error.message);
         }).finally(() => selectMarca.onchange = buscaModelo);
 }
@@ -62,26 +62,79 @@ function buscaModelo() {
     tableVeiculo.style.display = 'none';
 
     fetch(`https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos`)
-    .then(response => {
-        if (response.ok && response.status === 200) {
-            return response.json();
-        } else {
-            console.log(response.status)
-            throw new Error("Busca por modelo");
-        }
-    }).then((data) => {
-        loading.style.display = 'none';
-        formModelo.style.display = 'block';
+        .then(response => {
+            if (response.ok && response.status === 200) {
+                return response.json();
+            } else {
+                console.log(response.status);
+                throw new Error("Busca por modelo");
+            }
+        }).then(data => {
+            formModelo.style.display = 'block';
+            loading.style.display = 'none';
 
-        selectModelo.innerHTML = '';
-        selectModelo.innerHTML = option;
-        data.modelos.forEach((modelo) => {
-            selectModelo.innerHTML += `<option value="${modelo.codigo}">${modelo.nome}</option>`;
+            selectModelo.innerHTML = '';
+            selectModelo.innerHTML = option;
+            data.modelos.forEach(modelo => {
+                selectModelo.innerHTML += `<option value="${modelo.codigo}">${modelo.nome}</option>`;
+            });
+            // data.anos.forEach((modelo) => {
+            //     selectModelo.innerHTML += `<option value="${modelo.codigo}">${modelo.nome}</option>`;
+            // });
+        }).catch(error => {
+            console.warn(error.message);
+        }).finally(() => selectModelo.onchange = buscaAno);
+}
+
+let modeloEscolhido;
+function buscaAno() {
+    loading.style.display = 'block';
+    modeloEscolhido = selectModelo.value;
+
+    fetch(`https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos/${modeloEscolhido}/anos`)
+        .then(response => {
+            if (response.ok && response.status === 200) {
+                return response.json();
+            } else {
+                console.log(response.status);
+                throw new Error("Busca por ano");
+            }
+        }).then(data => {
+            formAno.style.display = 'block';
+            loading.style.display = 'none';
+
+            selectAno.innerHTML = '';
+            selectAno.innerHTML = option;
+            data.forEach(ano => {
+                selectAno.innerHTML += `<option value="${ano.codigo}">${ano.nome}</option>`;
+            });
+        }).catch(error => {
+            console.warn(error.message);
+        }).finally(() => selectAno.onchange = veiculoEscolhido);
+}
+
+let anoEscolhido;
+function veiculoEscolhido() {
+    loading.style.display = 'block';
+    anoEscolhido = selectAno.value;
+
+    fetch(`https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos/${modeloEscolhido}/anos/${anoEscolhido}`)
+        .then(response => {
+            if (response.ok && response.status === 200) {
+                return response.json();
+            } else {
+                console.log(response.status);
+                throw new Error("Imprime veiculo");
+            }
+        }).then(data => {
+            tableVeiculo.style.display = 'block';
+            loading.style.display = 'none';
+
+            listaVeiculo.innerHTML = '';
+            for (let dados in data) {
+                listaVeiculo.innerHTML += `<tr><td>${dados}:</td><td>${data[dados]}</td></tr>`;
+            }
+        }).catch(error => {
+            console.warn(error.message);
         });
-        data.anos.forEach((modelo) => {
-            selectModelo.innerHTML += `<option value="${modelo.codigo}">${modelo.nome}</option>`;
-        });
-    }).catch((error) => {
-        console.warn(error.message);
-    }).finally(() => selectModelo.onchange = buscaAno);
 }

@@ -48,16 +48,16 @@ inputTipo.onchange = tipoAutomovel;
 function buscar(consultaFipe) {
     loading.style.display = 'block';
     if (consultaFipe.readyState === 1) { // Status da requisição
-        console.log('bad');
+        // console.log('bad');
     }
     if (consultaFipe.readyState === 4) {
-        console.log('DONE')
+        // console.log('DONE')
         console.log(consultaFipe.readyState)
         if (consultaFipe.status === 200) { // Status Code
             tratamentoFipe(consultaFipe);
-            console.log('otimo! sucesso')
+            // console.log('otimo! sucesso')
         } else {
-            console.log('muito ruim')
+            // console.log('muito ruim')
         }
     }
 }
@@ -95,16 +95,16 @@ function buscaModelo() {
 function buscaModelos(consultaFipeM) {
     loading.style.display = 'block';
     if (consultaFipeM.readyState === 1) { // Status da requisição
-        console.log('bad-2'); //
+        // console.log('bad-2'); //
     }
     if (consultaFipeM.readyState === 4) {
-        console.log('DONE-2') //
+        // console.log('DONE-2') //
         console.log(consultaFipeM.readyState)
         if (consultaFipeM.status === 200) { // Status Code
             tratamentoFipeModelos(consultaFipeM);
-            console.log('otimo! sucesso-2') //
+            // console.log('otimo! sucesso-2') //
         } else {
-            console.log('muito ruim-2') //
+            // console.log('muito ruim-2') //
         }
     }
 }
@@ -114,7 +114,7 @@ function tratamentoFipeModelos(consultaFipeM) {
     loading.style.display = 'none';
     let tabelaModelos = JSON.parse(consultaFipeM.responseText);
     console.log(tabelaModelos)
-    console.log('modelos tabela')
+    // console.log('modelos tabela')
 
     selectModelo.innerHTML = '';
     selectModelo.innerHTML = option;
@@ -123,7 +123,7 @@ function tratamentoFipeModelos(consultaFipeM) {
 }
 
 function listaModelo(modelo) {
-    console.log('LISTA MODELOS')
+    // console.log('LISTA MODELOS')
     selectModelo.innerHTML += `<option value="${modelo.codigo}">${modelo.nome}</option>`;
 
     selectModelo.onchange = buscaAno;
@@ -146,17 +146,17 @@ function buscaAno() {
 function buscaAnos(consultaFipeAno) {
     loading.style.display = 'block';
     if (consultaFipeAno.readyState === 1) { // Status da requisição
-        console.log('bad-3'); //
+        // console.log('bad-3'); //
     }
     if (consultaFipeAno.readyState === 4) {
-        console.log('DONE-3') //
+        // console.log('DONE-3') //
         console.log(consultaFipeAno.readyState)
         if (consultaFipeAno.status === 200) { // Status Code
-            console.log('otimo! sucesso-3') //
+            // console.log('otimo! sucesso-3') //
             tratamentoFipeAno(consultaFipeAno);
         } else {
-            console.log('muito ruim-3') //
-            console.log('arrumar aqui')
+            // console.log('muito ruim-3') //
+            // console.log('arrumar aqui')
             formAno.style.display = 'none';
             naoEncontrado();
         }
@@ -173,8 +173,8 @@ function tratamentoFipeAno(consultaFipeAno) {
     formAno.style.display = 'block';
     loading.style.display = 'none';
     let tabelaAnos = JSON.parse(consultaFipeAno.responseText);
-    console.log(tabelaAnos)
-    console.log('anos tabela')
+    // console.log(tabelaAnos)
+    // console.log('anos tabela')
 
     selectAno.innerHTML = '';
     selectAno.innerHTML = option;
@@ -182,7 +182,7 @@ function tratamentoFipeAno(consultaFipeAno) {
 }
 
 function listaAnos(modelo) {
-    console.log('LISTA ANOS')
+    // console.log('LISTA ANOS')
     selectAno.innerHTML += `<option value="${modelo.codigo}">${modelo.nome}</option>`;
 
     selectAno.onchange = buscaAnoTipo;
@@ -193,11 +193,7 @@ function listaAnos(modelo) {
 
 let anoEscolhido;
 function buscaAnoTipo() {
-    // tableVeiculo.style.display = 'block';
     anoEscolhido = selectAno.value;
-    console.log('codigo ano', anoEscolhido)
-    console.log('codigo modelo', modeloEscolhido)
-    console.log('codigo marca', marcaEscolhida)
 
     consultaFipeAnoTipo.open('GET', `https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos/${modeloEscolhido}/anos/${anoEscolhido}`, true);
     consultaFipeAnoTipo.send();
@@ -207,16 +203,16 @@ function buscaAnoTipo() {
 function buscaAnosTipo(consultaFipeAnoTipo) {
     loading.style.display = 'block';
     if (consultaFipeAnoTipo.readyState === 1) { // Status da requisição
-        console.log('bad-3'); //
+        // console.log('bad-3'); //
     }
     if (consultaFipeAnoTipo.readyState === 4) {
-        console.log('DONE-3') //
+        // console.log('DONE-3') //
         tratamentoFipeAnoTipo(consultaFipeAnoTipo);
         console.log(consultaFipeAnoTipo.readyState)
         if (consultaFipeAnoTipo.status === 200) { // Status Code
-            console.log('otimo! sucesso-3') //
+            // console.log('otimo! sucesso-3') //
         } else {
-            console.log('muito ruim-3') //
+            // console.log('muito ruim-3') //
         }
     }
 }
@@ -225,15 +221,15 @@ function tratamentoFipeAnoTipo(consultaFipeAnoTipo) {
     loading.style.display = 'none';
     tableVeiculo.style.display = 'block';
     let veiculo = JSON.parse(consultaFipeAnoTipo.responseText);
-    console.log(veiculo)
-    console.log('anostipo tabela')
+    // console.log(veiculo)
+    // console.log('anostipo tabela')
 
     listaVeiculo.innerHTML = '';
     listaVeiculoTabela(veiculo);
 }
 
 function listaVeiculoTabela(modelo) {
-    console.log('LISTA ANOS')
+    // console.log('LISTA ANOS')
 
     for (let veiculo in modelo) {
         listaVeiculo.innerHTML += `<tr><td>${veiculo}:</td><td>${modelo[veiculo]}</td></tr>`;
