@@ -2,8 +2,7 @@
 @media (prefers-color-scheme: dark) {
 
     html,
-    a,
-    button {
+    a {
         color: var(--text-color-dark);
     }
 

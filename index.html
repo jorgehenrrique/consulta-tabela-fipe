@@ -19,91 +19,22 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/darkMode.css">
+    <link rel="stylesheet" class="dark" href="assets/css/dark.css">
     <link rel="stylesheet" href="assets/css/media.css">
+    <link rel="stylesheet" href="assets/css/loader.css">
     <title>Consulta Tatela FIPE</title>
 </head>
 <style>
     .animate__fadeIn {
         animation-duration: 1s;
     }
-    .loader {
-        transform: rotateZ(45deg);
-        perspective: 1000px;
-        border-radius: 50%;
-        width: 48px;
-        height: 48px;
-        color: #046714;
-    }
-    .loader:before,
-    .loader:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: inherit;
-        height: inherit;
-        border-radius: 50%;
-        transform: rotateX(70deg);
-        animation: 1s spin linear infinite;
-    }
-    .loader:after {
-        color: #600d9b;
-        transform: rotateY(70deg);
-        animation-delay: .4s;
-    }
-    @keyframes rotate {
-        0% {
-            transform: translate(-50%, -50%) rotateZ(0deg);
-        }
-        100% {
-            transform: translate(-50%, -50%) rotateZ(360deg);
-        }
-    }
-    @keyframes rotateccw {
-        0% {
-            transform: translate(-50%, -50%) rotate(0deg);
-        }
-        100% {
-            transform: translate(-50%, -50%) rotate(-360deg);
-        }
-    }
-    @keyframes spin {
-        0%,
-        100% {
-            box-shadow: .2em 0px 0 0px currentcolor;
-        }
-        12% {
-            box-shadow: .2em .2em 0 0 currentcolor;
-        }
-        25% {
-            box-shadow: 0 .2em 0 0px currentcolor;
-        }
-        37% {
-            box-shadow: -.2em .2em 0 0 currentcolor;
-        }
-        50% {
-            box-shadow: -.2em 0 0 0 currentcolor;
-        }
-        62% {
-            box-shadow: -.2em -.2em 0 0 currentcolor;
-        }
-        75% {
-            box-shadow: 0px -.2em 0 0 currentcolor;
-        }
-        87% {
-            box-shadow: .2em -.2em 0 0 currentcolor;
-        }
-    }
-    .loader{
-        position: absolute;
-        top: 50%;
-        right: 50%;
-    }
 </style>
-
 <body>
     <header>
+        <div class="modo">
+            <button class="escuro">◼️</button>
+            <button class="claro">◻️</button>
+        </div>
         <h1>Consulta simples na Tabela FIPE</h1>
     </header>
     <span class="loader" style="display: non;"></span> <!-- Loading -->
@@ -152,7 +83,7 @@
         <table class="table animate__fadeIn" style="display: none;">
             <thead>
                 <th>
-                    <td rowspan="2">Veículo</td>
+                    <td colspan="2">Dados do Veículo</td>
                 </th>
             </thead>
             <tbody id="lista-veiculo">

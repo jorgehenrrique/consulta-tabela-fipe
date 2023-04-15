@@ -9,6 +9,8 @@ const selectAno = document.querySelector('#ano');
 const tableVeiculo = document.querySelector('.table');
 const listaVeiculo = document.querySelector('#lista-veiculo');
 
+const option = `<option value="default" disabled selected>Selecione uma opção</option>`;
+
 let consultaFipe = new XMLHttpRequest();
 let consultaFipeM = new XMLHttpRequest();
 let consultaFipeAno = new XMLHttpRequest();
@@ -30,13 +32,12 @@ function tipoAutomovel() {
 inputTipo.onchange = tipoAutomovel;
 
 function buscar(consultaFipe) {
+    loading.style.display = 'block';
     if (consultaFipe.readyState === 1) { // Status da requisição
-        loading.style.display = 'block';
         console.log('bad');
     }
     if (consultaFipe.readyState === 4) {
         console.log('DONE')
-        loading.style.display = 'none';
         tratamentoFipe(consultaFipe);
         console.log(consultaFipe.readyState)
         if (consultaFipe.status === 200) { // Status Code
@@ -48,11 +49,13 @@ function buscar(consultaFipe) {
 }
 
 function tratamentoFipe(consultaFipe) {
+    loading.style.display = 'none';
     formMarca.style.display = 'block';
     let tabela = JSON.parse(consultaFipe.responseText);
     console.log(tabela)
 
     selectMarca.innerHTML = '';
+    selectMarca.innerHTML = option;
     tabela.forEach(listaMarca);
 }
 
@@ -76,13 +79,12 @@ function buscaModelo() {
 }
 
 function buscaModelos(consultaFipeM) {
+    loading.style.display = 'block';
     if (consultaFipeM.readyState === 1) { // Status da requisição
         console.log('bad-2'); //
-        loading.style.display = 'none';
     }
     if (consultaFipeM.readyState === 4) {
         console.log('DONE-2') //
-        loading.style.display = 'none';
         tratamentoFipeModelos(consultaFipeM);
         console.log(consultaFipeM.readyState)
         if (consultaFipeM.status === 200) { // Status Code
@@ -94,11 +96,13 @@ function buscaModelos(consultaFipeM) {
 }
 
 function tratamentoFipeModelos(consultaFipeM) {
+    loading.style.display = 'none';
     let tabelaModelos = JSON.parse(consultaFipeM.responseText);
     console.log(tabelaModelos)
     console.log('modelos tabela')
 
     selectModelo.innerHTML = '';
+    selectModelo.innerHTML = option;
     tabelaModelos.modelos.forEach(listaModelo)
     tabelaModelos.anos.forEach(listaModelo)
 }
@@ -125,13 +129,12 @@ function buscaAno() {
 }
 
 function buscaAnos(consultaFipeAno) {
+    loading.style.display = 'block';
     if (consultaFipeAno.readyState === 1) { // Status da requisição
         console.log('bad-3'); //
-        loading.style.display = 'none';
     }
     if (consultaFipeAno.readyState === 4) {
         console.log('DONE-3') //
-        loading.style.display = 'none';
         tratamentoFipeAno(consultaFipeAno);
         console.log(consultaFipeAno.readyState)
         if (consultaFipeAno.status === 200) { // Status Code
@@ -143,11 +146,13 @@ function buscaAnos(consultaFipeAno) {
 }
 
 function tratamentoFipeAno(consultaFipeAno) {
+    loading.style.display = 'none';
     let tabelaAnos = JSON.parse(consultaFipeAno.responseText);
     console.log(tabelaAnos)
     console.log('anos tabela')
 
     selectAno.innerHTML = '';
+    selectAno.innerHTML = option;
     tabelaAnos.forEach(listaAnos)
 }
 
@@ -175,13 +180,12 @@ function buscaAnoTipo() {
 }
 
 function buscaAnosTipo(consultaFipeAnoTipo) {
+    loading.style.display = 'block';
     if (consultaFipeAnoTipo.readyState === 1) { // Status da requisição
         console.log('bad-3'); //
-        loading.style.display = 'none';
     }
     if (consultaFipeAnoTipo.readyState === 4) {
         console.log('DONE-3') //
-        loading.style.display = 'none';
         tratamentoFipeAnoTipo(consultaFipeAnoTipo);
         console.log(consultaFipeAnoTipo.readyState)
         if (consultaFipeAnoTipo.status === 200) { // Status Code
@@ -193,13 +197,13 @@ function buscaAnosTipo(consultaFipeAnoTipo) {
 }
 
 function tratamentoFipeAnoTipo(consultaFipeAnoTipo) {
+    loading.style.display = 'none';
     tableVeiculo.style.display = 'block';
     let veiculo = JSON.parse(consultaFipeAnoTipo.responseText);
     console.log(veiculo)
     console.log('anostipo tabela')
 
     listaVeiculo.innerHTML = '';
-
     listaVeiculoTabela(veiculo);
 }
 
