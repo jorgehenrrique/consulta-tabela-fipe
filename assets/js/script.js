@@ -18,4 +18,70 @@ darkModeCheck.addEventListener('change', () => {
     darkModeCheck.checked ? darkModeCss.href = 'assets/css/dark.css' : darkModeCss.href = '', darkModeSistem.href = '';
 });
 
+let tipo;
+inputTipo.onchange = tipoAutomovel;
+function tipoAutomovel() {
+    tipo = inputTipo.value;
 
+    formMarca.style.display = 'none';
+    formModelo.style.display = 'none';
+    formAno.style.display = 'none';
+    tableVeiculo.style.display = 'none';
+
+    fetch(`https://parallelum.com.br/fipe/api/v1/${tipo}/marcas`)
+        .then(response => {
+            loading.style.display = 'block';
+            if (response.ok && response.status === 200) {
+                return response.json();
+            } else {
+                console.log(response.status)
+                throw new Error("Busca por tipo");
+            }
+        }).then((data) => {
+            loading.style.display = 'none';
+            formMarca.style.display = 'block';
+
+            selectMarca.innerHTML = '';
+            selectMarca.innerHTML = option;
+
+            data.forEach(marca => {
+                selectMarca.innerHTML += `<option value="${marca.codigo}">${marca.nome}</option>`;
+            });
+        }).catch((error) => {
+            console.warn(error.message);
+        }).finally(() => selectMarca.onchange = buscaModelo);
+}
+
+let marcaEscolhida;
+function buscaModelo() {
+    loading.style.display = 'block';
+    marcaEscolhida = selectMarca.value;
+
+    formModelo.style.display = 'none';
+    formAno.style.display = 'none';
+    tableVeiculo.style.display = 'none';
+
+    fetch(`https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos`)
+    .then(response => {
+        if (response.ok && response.status === 200) {
+            return response.json();
+        } else {
+            console.log(response.status)
+            throw new Error("Busca por modelo");
+        }
+    }).then((data) => {
+        loading.style.display = 'none';
+        formModelo.style.display = 'block';
+
+        selectModelo.innerHTML = '';
+        selectModelo.innerHTML = option;
+        data.modelos.forEach((modelo) => {
+            selectModelo.innerHTML += `<option value="${modelo.codigo}">${modelo.nome}</option>`;
+        });
+        data.anos.forEach((modelo) => {
+            selectModelo.innerHTML += `<option value="${modelo.codigo}">${modelo.nome}</option>`;
+        });
+    }).catch((error) => {
+        console.warn(error.message);
+    }).finally(() => selectModelo.onchange = buscaAno);
+}
