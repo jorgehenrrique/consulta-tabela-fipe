@@ -6,8 +6,8 @@ const formModelo = document.querySelector('.modelo');
 const selectModelo = document.querySelector('#modelo');
 const formAno = document.querySelector('.ano');
 const selectAno = document.querySelector('#ano');
-const tableVeiculo = document.querySelector('.table');
 const listaVeiculo = document.querySelector('#lista-veiculo');
+const dadosV = document.querySelector('#dadosV');
 
 const darkModeSistem = document.querySelector('.dark-sistem');
 const darkModeCss = document.querySelector('.dark');
@@ -27,7 +27,8 @@ function tipoAutomovel() {
     formMarca.style.display = 'none';
     formModelo.style.display = 'none';
     formAno.style.display = 'none';
-    tableVeiculo.style.display = 'none';
+    listaVeiculo.innerHTML = '';
+    dadosV.innerText = '';
 
     fetch(`https://parallelum.com.br/fipe/api/v1/${tipo}/marcas`)
         .then(response => {
@@ -60,7 +61,8 @@ function buscaModelo() {
 
     formModelo.style.display = 'none';
     formAno.style.display = 'none';
-    tableVeiculo.style.display = 'none';
+    listaVeiculo.innerHTML = '';
+    dadosV.innerText = '';
 
     fetch(`https://parallelum.com.br/fipe/api/v1/${tipo}/marcas/${marcaEscolhida}/modelos`)
         .then(response => {
@@ -128,9 +130,9 @@ function veiculoEscolhido() {
                 throw new Error("Imprime veiculo");
             }
         }).then(data => {
-            tableVeiculo.style.display = 'block';
             loading.style.display = 'none';
 
+            dadosV.innerText = 'Dados do Veículo';
             listaVeiculo.innerHTML = '';
             for (let dados in data) {
                 listaVeiculo.innerHTML += `<tr><td>${dados}:</td><td>${data[dados]}</td></tr>`;

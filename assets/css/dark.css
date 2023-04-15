@@ -16,3 +16,7 @@ h2{
     color: var(--container-color-dark);
     transition: background-color 0.5s ease, color 0.5s ease;
 }
+tr:nth-child(2n){
+    background-color: #c1c1c114;
+    transition: background-color 0.5s ease;
+}
