@@ -3,8 +3,7 @@
 
     header {
         background-color: var(--header-color-dark);
-        box-shadow: 0px 0px 30px 0px var(--header-shadow-dark);
-        border-bottom: .1rem solid var(--border-dark);
+        box-shadow: none;
         transition: background-color 0.5s ease, box-shadow 0.5s ease, border-bottom 0.5s ease;
     }
     h1{
@@ -24,5 +23,11 @@
     tr:nth-child(2n){
         background-color: #c1c1c114;
         transition: background-color 0.5s ease;
+    }
+
+    /* || Efeito load superior */
+    .load-led{
+        box-shadow: 0px 0px 30px 0px var(--header-shadow-dark);
+        border-bottom: .3rem solid var(--border-dark);
     }
 }

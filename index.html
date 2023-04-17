@@ -33,7 +33,7 @@
 </style>
 <body>
     <header>
-        <div class="modo">
+        <div class="tema">
             <div class="checkbox-apple">
                 <input class="yep" id="check-apple" type="checkbox">
                 <label for="check-apple"></label>
@@ -41,6 +41,54 @@
         </div>
         <h1>Consulta simples na Tabela FIPE</h1>
     </header>
+    <div class="led">
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+        <div id="led" class="conf"></div>
+    </div>
+    
     <span class="loader" style="display: non;"></span> <!-- Loading -->
 
     <main class="container animate__fadeIn">
@@ -83,18 +131,21 @@
                 <option value="default" disabled selected>Selecione uma opção</option>
             </select>
         </form>
-        <table class="animate__fadeIn">
+        <div class="table animate__fadeIn">
+            <table>
             <thead>
                 <tr>
                     <th colspan="2" id="dadosV"></th>
                 </tr>
-            </thead>
-            <tbody id="lista-veiculo">
-            </tbody>
-        </table>
+                </thead>
+                <tbody id="lista-veiculo">
+                </tbody>
+            </table>
+        </div>
     </main>
     
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/script-led.js"></script>
 </body>
 
 </html>
