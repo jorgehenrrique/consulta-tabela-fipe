@@ -1,0 +1,14 @@
+.loader {
+    width: 8.8rem;
+    height: 8.8rem;
+    color: #ff0000;
+    transition: all ease-out 1s;
+}
+.loader:after {
+    color: #ff0000;
+    transition: all ease-out 1s;
+}
+.loader:before,
+.loader:after {
+    animation: 3s spin linear infinite;
+}

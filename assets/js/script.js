@@ -12,6 +12,8 @@ const dadosV = document.querySelector('#dadosV');
 const darkModeSistem = document.querySelector('.dark-sistem');
 const darkModeCss = document.querySelector('.dark');
 const darkModeCheck = document.querySelector('#check-apple');
+const errorMsg = document.querySelector('.error');
+const errorLoad = document.querySelector('.load-error');
 
 const option = `<option value="default" disabled selected>Selecione uma opção</option>`;
 
@@ -51,6 +53,7 @@ function tipoAutomovel() {
             });
         }).catch(error => {
             console.warn(error.message);
+            serverError();
         }).finally(() => selectMarca.onchange = buscaModelo);
 }
 
@@ -86,6 +89,7 @@ function buscaModelo() {
             // });
         }).catch(error => {
             console.warn(error.message);
+            serverError();
         }).finally(() => selectModelo.onchange = buscaAno);
 }
 
@@ -113,6 +117,7 @@ function buscaAno() {
             });
         }).catch(error => {
             console.warn(error.message);
+            serverError();
         }).finally(() => selectAno.onchange = veiculoEscolhido);
 }
 
@@ -139,5 +144,18 @@ function veiculoEscolhido() {
             }
         }).catch(error => {
             console.warn(error.message);
+            serverError();
         });
+}
+
+function serverError() {
+    errorMsg.style.display = 'block';
+    loading.style.display = 'block';
+    errorLoad.href = 'assets/css/loader-error.css';
+
+    setTimeout(() => {
+        errorMsg.style.display = 'none';
+        loading.style.display = 'none';
+        errorLoad.href = '';
+    }, 6000);
 }

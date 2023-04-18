@@ -127,3 +127,19 @@ table{
 .table{
     overflow: auto;
 }
+
+
+/* || Mensagem de erro */
+.error {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    height: 4rem;
+    background-color: #e8e8e8;
+    color: #ff0000;
+    border-radius: var(--border-radius-plus);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
