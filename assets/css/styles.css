@@ -53,11 +53,13 @@ header{
     transition: 0.5s ease;
 }
 
-
+/* || Botao de alternar tema */
 .tema{
     position: absolute;
     left: 1rem;
 }
+
+
 h1{
     color: var(--header-title-light);
     transition: color 0.5s ease;
@@ -128,7 +130,6 @@ table{
     overflow: auto;
 }
 
-
 /* || Mensagem de erro */
 .error {
     position: absolute;
@@ -142,4 +143,21 @@ table{
     font-weight: bold;
     font-size: 1.8rem;
     padding: 1rem 0;
+}
+
+/* || Footer */
+.footer{
+    position: fixed;
+    bottom: .5%;
+    opacity: 40%;
+    font-size: .5rem;
+    text-align: center;
+    transition: ease-out .3s;
+    width: 100%;
+}
+.by{
+    color: #fff;
+}
+.footer:hover{
+    opacity: 90%;
 }
