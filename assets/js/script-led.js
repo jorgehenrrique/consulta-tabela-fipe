@@ -1,4 +1,4 @@
-const loadLed = document.querySelectorAll('#led');
+const loadLed = document.querySelectorAll('.lede');
 
 function enableElements(index) {
     if (index < loadLed.length) {
